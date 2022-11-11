@@ -1,0 +1,53 @@
+/* drie basisstijlregels om je te helpen */
+:root {font-size: 100%;  /* zet je dit op 62.5%, dan is elke rem 10px waard, anders 16px */ }
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+/* hier komt jouw css */
+body {
+    background-color: gray;
+}
+
+header{
+    color:red;
+    height: 6rem;
+    margin-bottom: 1rem;
+}
+
+main {
+    background-image: url("Kits-of-Skya.jpg");
+    background-size: cover;
+    
+    width: 24rem;
+    height: 24rem;
+    margin: 3rem auto 0rem auto;
+    position: relative;
+    max-width: 12px;
+
+    display: flex;
+}
+
+p{ 
+    height: 5rem;
+    width: 5rem;
+    position: absolute;
+}
+
+p.een {background-color: #4ca159;}
+p.twee {background-color: #f0aad7; top: 2rem; left: 2rem}
+p.drie {background-color: #a0f02f; bottom: 2rem; right: 2rem}
+p.vier {background-color: #eb4f43; bottom: 0rem; right:0rem;}
+
+p.een {display: flex;}
+
+@media (min-width:600px) {
+    p.twee {top:5rem;}
+    p.drie {bottom: 5rem;}
+}
+
+@media (min-width:700px) {
+    p.een {top: 10rem; left: 7rem;}
+    p.twee {top:5rem;}
+    p.drie {top: 10rem; left: 12rem;}
+    p.vier {top: 15rem; left: 17rem;}
+}

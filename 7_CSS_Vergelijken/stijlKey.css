@@ -1,0 +1,43 @@
+	/* drie basisstijlregels om je te helpen */
+:root {font-size: 100%;  /* zet je dit op 62.5%, dan is elke rem 10px waard, anders 16px */ }
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+
+:root {font-size: 62.5%;}
+body {
+	margin-top: 10vh;
+	display: grid;
+	grid-template-columns: 1fr 60rem 1fr;
+	height: 80vh;
+	font-family: helvetica;
+	font-size: 2rem;
+	font-weight: 100;}
+
+p {text-align: center;margin-top: 38vh;}
+main p {margin-top: 5rem}
+
+.karmakaart {
+	height: 60rem;
+	padding: 5rem;
+	background-color: #b9aa6d;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-column-gap: 2rem;
+	grid-row-gap: 6rem;
+	font-weight: 600;}
+
+.karmakaart div {
+	background-color: #deb566;
+	border-radius: 50%;
+	text-align: center;
+	color: transparent;
+	padding-top: 1.8rem;}
+
+.karmakaart div.geselecteerd {color: #b9aa6d;}
+.karmakaart div.geselecteerd.karma1 {background-color: #e1e2e4;}
+/* tip: div.geselecteerd.karma1 gebruik je voor een div die zowel de klasses "geselecteerd" als "karma1" draagt  */
+.karmakaart div.geselecteerd.karma2 {background-color: #edc2ba;}
+/* tip: div.geselecteerd.karma2 gebruik je voor een div die zowel de klasses "geselecteerd" als "karma2" draagt  */
+.karmabingo.gewonnnen {color: #b8aa6d;}
+.karmabingo.verloren {color: #edc2ba;}

@@ -1,0 +1,36 @@
+header{
+    height: 6rem;
+    box-shadow: 0rem 5px 1rem  0.1rem gray;
+    margin-bottom: 1rem;
+}
+header div {
+    color: #AE0732;
+    
+    height: 4rem;
+    position: relative;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+header nav {
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    background-color: #AE0732;
+    color: white;
+
+}
+header img {
+    height: 3rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    
+}
+
+header h1{
+    font-size: 2rem;
+    margin-right: 2rem;
+}
