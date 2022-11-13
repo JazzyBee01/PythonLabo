@@ -3,6 +3,7 @@
 ### Description
 
 7_CSS.py takes 2 CSS files, parses them and outputs CSS code:
+
 green: style rule found in both files
 blue: "extra" style rules in test but not in key
 red: "missing" stule rules in key but not in test
