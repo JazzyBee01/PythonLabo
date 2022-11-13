@@ -9,14 +9,6 @@ extra = fg("blue")
 missing = fg("red")
 res = attr('reset')
 
-
-def printList(list, listname=""):
-    print(f'{listname} ({len(list)}): ')
-    print('\t',end="")
-    for item in list:
-        print(f'{item}; ',end="")
-    print('\n')
-
 class CSSComparator:
     """ def __init__(self, keyfile, testfile):
         self.file1 = keyfile
@@ -32,6 +24,7 @@ class CSSComparator:
         for rule in stylesheet.cssRules:
             print(rule.selectorText)
 
+
 @dataclass
 class Match:
     match: int #match percentage
@@ -41,15 +34,52 @@ class Match:
 
 @dataclass
 class SelectorMatch:
-    match: int #match percentage
-    matching: dict
-    extra: dict
-    missing: dict
+    match: int      #match percentage 
+    matching: dict  #contains match elements of stylerules of which the selector was found in both files
+    extra: dict     #contains stylerules of which the selector was not found in the keyfile. as result all stylerules here will also be considered extra
+    missing: dict   #contains stylerules of which the selector was not found in the keyfile. as result all stylerules here will also be considered extra
 
+    """ex:
+    SelectorMatch(
+        match=74.28571428571429, 
+        matching={
+            ':root': 
+                Match(
+                    match=100.0, 
+                    matching=[
+                        'font-size: 100%;',
+                        ], 
+                    extra=[], 
+                    missing=[]
+                ), 
+            'html': 
+                Match(
+                    match=100.0, 
+                    matching=['box-sizing: border-box'], 
+                    extra=[], 
+                    missing=[]
+                    )
+            },
+        extra={
+            'header div': [
+                    'color: #AE0732;', 
+                    'height: 4rem;'
+                    ], 
+            'header nav': [
+                'height: 2rem;',
+                'display: flex;',
+                ]
+            }
+        },
+        missing={}
+        )
 
-
-
-def getStyleRuledict(stylesheet):   
+    """
+def getStyleRuledict(stylesheet): 
+    """returns a dictionary of a stylesheet
+        keys: selectors
+        values: the rules the selector contains in a list
+    """  
     styleRuleDict = {}
 
     ## stijl lijnen per selector in dict opslaan
@@ -63,36 +93,28 @@ def getStyleRuledict(stylesheet):
     
     return styleRuleDict
 
-def printSRD(styleRuleDict):
-    for selector in styleRuleDict.keys():
-        print(selector)
-        for rule in styleRuleDict[selector]:
-            print("\t" + rule)
-
 def collectSelectors(stylesheet):
+    """Collects all selectors found in given stylesheet and returns them in a list"""
     selectors = []
-    
     #collect key selectors
     for rule in stylesheet.cssRules.rulesOfType(1):
         if rule.selectorText not in selectors:
-            """ if ',' in rule.selectorText:
-                s = rule.selectorText.split(',')
-                for el in s:
-                    keySelectors.append(el)
-            else: """
             selectors.append(rule.selectorText)
     #collect test selectors
     return selectors
 
-
 def compareLists(keySelectorList, testSelectorList):
+    """ Compares 2 lists and returns a Match containing:
+            - match percentage
+            - matching: list of items present in both lists
+            - extra: list of items found in testList but not in keylist
+            - missing: list of items present in keyList but not in testList
+    """
     #keySelectors = collectSelectors(key)
     #testSelectors = collectSelectors(test)
     missing = []
     extra = []
     matching = []
-
-
 
     #collect matching and extra
     for selector in testSelectorList:
@@ -120,9 +142,7 @@ def compareStyleRules(key, test):
     lines = 0
     correct_lines = 0
 
-
     selectorComp = compareLists(collectSelectors(key),collectSelectors(test))
-
 
     for s in selectorComp.matching:
         cl = compareLists(keySRD[s], testSRD[s])
@@ -143,25 +163,14 @@ def compareStyleRules(key, test):
     print(correct_lines)
     print(lines)
 
-
     return SelectorMatch(match,matching, extra, missing)
 
-    
-
-
-    comparisonDict = {} #{ test_selector: {state: extra, match: , extra_lines: [] , lines_missing []  }, test_selector: {} }
-    #op basis van state en extra enz in kleur weergeven
-
-    print('key')
-    printSRD(keySRD)
-    print('test')
-    printSRD(testSRD)
 
 if __name__ == "__main__":
     APP = CSSComparator()
 
-    key = APP.parse('lab4-oplossingen/oef5/stijl.css')
-    test = APP.parse('L4/oef5/stijl.css')
+    key = APP.parse('key.css')
+    test = APP.parse('test.css')
 
     #APP.printRules(key.cssRules)
     """ 
@@ -172,7 +181,7 @@ if __name__ == "__main__":
     #compareSelectors(key,test)
 
     csr = compareStyleRules(key, test)
-    #print(csr)
+    print(csr)
     #print(csr.matching["header"])
 
     percentageSelectorsMatched = compareLists(collectSelectors(key), collectSelectors(test)).match
