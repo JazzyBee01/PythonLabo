@@ -1,8 +1,19 @@
 import aspose.words as aw
 import os
 
-notesRoot = "C:/Users/jazzm/Desktop/DocVoorSchool/Notes"
-notesDestination = "C:/Users/jazzm/Desktop/DocVoorSchool/3-Python OOP/PythonLabo/8_PDFGenerator/Converted_pdf"
+root = input("source folder: ")
+dest = input("destination folder: ")
+
+if root:
+    notesRoot = root
+else: 
+    notesRoot = "C:/Users/jazzm/Desktop/DocVoorSchool/Notes"
+
+if dest: 
+    notesDestination = dest
+else:
+    notesDestination = "C:/Users/jazzm/Desktop/DocVoorSchool/3-Python OOP/PythonLabo/8_PDFGenerator/Converted_pdf"
+
 for root, dirs, files in os.walk(notesRoot):
     for file in files:
         if file.endswith(".md"):
@@ -11,7 +22,8 @@ for root, dirs, files in os.walk(notesRoot):
             subdir = root.replace(notesRoot, "")
             destinationPath = os.path.join(notesDestination + subdir, file)
             doc.save(destinationPath[:-2]+"pdf") #strip .md of end
-            print(destinationPath)
+            #print(destinationPath)
+            print(f"converted {file}")
 
 
 
