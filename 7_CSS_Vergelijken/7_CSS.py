@@ -37,7 +37,7 @@ class SelectorMatch:
     match: int      #match percentage 
     matching: dict  #contains match elements of stylerules of which the selector was found in both files
     extra: dict     #contains stylerules of which the selector was not found in the keyfile. as result all stylerules here will also be considered extra
-    missing: dict   #contains stylerules of which the selector was not found in the keyfile. as result all stylerules here will also be considered extra
+    missing: dict   #contains stylerules of which the selector was not found in the testfile. as result all stylerules here will also be considered missing
 
     """ex:
     SelectorMatch(
