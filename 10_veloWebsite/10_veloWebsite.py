@@ -161,7 +161,7 @@ def historiek():
 
 @app.route("/stations")
 def stations():
-    return "stations"
+    return render_template('stations.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
