@@ -10,7 +10,7 @@ Er zijn een paar redenen waarom ik hier niet toe gekomen ben
 zou zijn met een json object.
 - ik ben tegen een blok aangelopen met het gebruiken
 van images in flask. Ze kunnen precies enkel vanuit een "static" folder
-vorden uitgelezen maar daar kon ik niet naar schrijven met de plot functie.
+worden uitgelezen maar daar kon ik niet naar schrijven met de plot functie.
 
 Aangezien de 2 opgaves niet samenwerken is dit wel niet actuele data! 
 
