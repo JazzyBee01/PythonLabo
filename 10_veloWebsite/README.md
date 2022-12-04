@@ -12,6 +12,8 @@ zou zijn met een json object.
 van images in flask. Ze kunnen precies enkel vanuit een "static" folder
 vorden uitgelezen maar daar kon ik niet naar schrijven met de plot functie.
 
+Aangezien de 2 opgaves niet samenwerken is dit wel niet actuele data! 
+
 
 ## Screenshot
 ![img.png](img.png)
