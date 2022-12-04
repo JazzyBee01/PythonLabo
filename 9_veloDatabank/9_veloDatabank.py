@@ -74,7 +74,7 @@ class VeloDatabaseCreator:
             self.set_t()
             h = self.t.hour
             m = self.t.minute
-            if m > 30:
+            if m >= 30:
                   field = f"H{h}_30"
             else:
                   field = f"H{h}_00"
@@ -86,14 +86,14 @@ class VeloDatabaseCreator:
             cur = con.cursor()
 
             query = f'update historiek set H0_00 = 8 where id = 1'
-            print(query)
+            #print(query)
 
             cur.execute(query)
             for st in self.data_json:
                   cur = con.cursor()
                   query = f'update historiek set {self.currTimefield()}={st["bikes"]} where id={st["id"]}'
                   cur.execute(query)
-                  print(query)
+                  #print(query)
             con.commit()
             con.close()
 
@@ -158,7 +158,7 @@ if __name__ == "__main__":
       for i in range(24):
             historiekHeaders.append(f"H{i}_00")
             historiekHeaders.append(f"H{i}_30")
-      print(historiekHeaders)
+      #print(historiekHeaders)
 
       site = StaticSiteGenerator("veloDatabase.db", "historiek.html")
       site.writeHTML("historiek", historiekHeaders)

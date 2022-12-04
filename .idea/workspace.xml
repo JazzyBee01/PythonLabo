@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="943c74d5-4079-4b4b-985c-e93c0fb3c997" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/8_PDFGenerator/requierments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/8_PDFGenerator/requierments.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/10_veloWebsite/10_veloWebsite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PythonLabo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PythonLabo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9_veloDatabank/9_veloDatabank.py" beforeDir="false" afterPath="$PROJECT_DIR$/9_veloDatabank/9_veloDatabank.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9_veloDatabank/historiek.html" beforeDir="false" afterPath="$PROJECT_DIR$/9_veloDatabank/historiek.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9_veloDatabank/veloDatabase.db" beforeDir="false" afterPath="$PROJECT_DIR$/9_veloDatabank/veloDatabase.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,7 +37,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/jazzm/Desktop/DocVoorSchool/3-Python OOP/PythonLabo/9_veloDatabank"
+    "last_opened_file_path": "C:/Users/jazzm/Desktop/DocVoorSchool/3-Python OOP/PythonLabo/10_veloWebsite"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -37,8 +49,13 @@
       <option name="presentableId" value="Default" />
       <updated>1669624662857</updated>
       <workItem from="1669624666184" duration="21000" />
+      <workItem from="1669966720949" duration="346000" />
+      <workItem from="1669967088460" duration="10000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

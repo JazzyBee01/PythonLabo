@@ -1,10 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+<style>
+    img{
+        margin: 0 1rem;
+    }
+    .data{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+    h1{
+        margin-bottom: 1rem;
+    }
+    .box{
+        height: 100%
+    }
+
+</style>
 <body>
-$END$
+
+<nav class="navbar">
+    <a href="/">
+        <img src="https://antwerp-web-prod.s3-eu-west-1.amazonaws.com/logo.svg" alt="" class="image is-48x48">
+    </a>
+    <div class="navbar-menu is-active">
+        <a href="/" class="navbar-item">home</a>
+        <a href="/historiek" class="navbar-item">historiek</a>
+        <a href="/stations" class="navbar-item">stations</a>
+    </div>
+</nav>
+
+<div class='data'>
+    <div class="box" >
+        <h1 class="title is-3">Lege Stations: <span>{{aantalLeeg}}</span></h1>
+        <ul>
+            {% for st in legeStations %}
+                <li>{{st['id']}} {{st['address']}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="box" >
+        <h1 class="title is-3">Volle Stations: <span>{{aantalVol}}</span></h1>
+        <ul>
+            {% for st in volleStations %}
+                <li>{{st['id']}} {{st['address']}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="box verplaatsingen" >
+        <h1 class="title is-3">
+            Geschatte verplaatsingen
+        </h1>
+        <div>
+                    <img src="static/verplaatsingen.png" alt="verplaatsingen histogram">
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
 </body>
 </html>
