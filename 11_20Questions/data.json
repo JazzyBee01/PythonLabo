@@ -1,0 +1,73 @@
+{
+    "kat": {
+        "naam": "kat",
+        "klasse": "zoogdier",
+        "dieet": "carnivoor",
+        "aantalPoten": "4",
+        "oorsprong": "europa",
+        "kleur": "['zwart', 'wit', 'grijs', 'bruinoranje']",
+        "gegeten": "False",
+        "huisdier": "True",
+        "huid": "vacht",
+        "pattroon": "['vlekken', 'strepen', 'geen']",
+        "habitat": "['huis']"
+    },
+    "hond": {
+        "naam": "hond",
+        "klasse": "zoogdier",
+        "dieet": "carnivoor",
+        "aantalPoten": "4",
+        "oorsprong": "onbekend",
+        "kleur": "['zwart', 'wit', 'grijs', 'bruin']",
+        "gegeten": "False",
+        "huisdier": "True",
+        "huid": "vacht",
+        "pattroon": "['bevlekt', 'geen']",
+        "habitat": "['huis']"
+    },
+    "spin": {
+        "naam": "spin",
+        "klasse": "insect",
+        "dieet": "insecteneter",
+        "aantalPoten": "8",
+        "oorsprong": "onbekend",
+        "kleur": "['zwart', 'wit', 'grijs', 'bruin', 'rood', 'blauw']",
+        "gegeten": "False",
+        "huisdier": "False",
+        "huid": "geen",
+        "pattroon": "['geen']",
+        "habitat": "['anders']"
+    },
+    "zeehond": {
+        "naam": "zeehond",
+        "klasse": "zoogdier",
+        "dieet": "viseter",
+        "aantalPoten": "0",
+        "oorsprong": "onbekend",
+        "kleur": "['grijs']",
+        "gegeten": "False",
+        "huisdier": "False",
+        "huid": "geen",
+        "pattroon": "['geen']",
+        "habitat": "['zee']"
+    },
+    "oerangoetang": {
+        "naam": "oerangoetang",
+        "klasse": "zoogdier",
+        "dieet": "omnivoor",
+        "aantalPoten": "4",
+        "kleur": [
+            "oranje"
+        ],
+        "gegeten": "False",
+        "huisdier": "False",
+        "huid": "vacht",
+        "pattroon": [
+            "geen patroon"
+        ],
+        "oorsprong": [
+            "Oceanie"
+        ],
+        "habitat": "jungle"
+    }
+}
