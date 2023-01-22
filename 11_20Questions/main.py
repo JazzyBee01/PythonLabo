@@ -380,7 +380,7 @@ class App_20_Questions():
     def groet(self):
 
         if (len(sys.argv) > 1):
-            if (sys.argv[1] == "-k"):
+            if (sys.argv[1] == "-xmas"):
                 print(kerst_weetjes[2])
                 self.print_kader_met_tekst(random.choice(kerst_weetjes))
         else:
