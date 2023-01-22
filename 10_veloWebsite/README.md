@@ -17,3 +17,9 @@ Aangezien de 2 opgaves niet samenwerken is dit wel niet actuele data!
 
 ## Screenshot
 ![img.png](img.png)
+
+## Setup
+Om de server op te starten gebruik je het commando
+```
+flask --app .\10_veloWebsite.py --debug run
+```

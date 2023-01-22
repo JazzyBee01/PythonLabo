@@ -1,1 +1,0 @@
-from md2pdf.core import md2pdf
