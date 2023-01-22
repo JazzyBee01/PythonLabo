@@ -1,8 +1,10 @@
 import cssutils
 from dataclasses import dataclass
 from colored import fg, bg, attr
+import sys
 import os
 os.system('color')
+
 
 ok = fg("green")
 extra = fg("blue")
@@ -172,6 +174,22 @@ if __name__ == "__main__":
     key = APP.parse('key.css')
     test = APP.parse('test.css')
 
+    #1 file path meegegeven -> test = path
+    if len(sys.argv) in [2,3]:
+        try:
+            test = APP.parse(sys.argv[1])
+        except:
+            print('given argument was not a valid file path')
+
+    # 2 file paths meegegeven → 2de argument is key
+    if len(sys.argv) == 3:
+        try:
+            key = APP.parse(sys.argv[2])
+        except:
+            print('given argument was not a valid file path')
+
+
+
     #APP.printRules(key.cssRules)
     """ 
     styleRules = key.cssRules.rulesOfType(1)
@@ -181,7 +199,7 @@ if __name__ == "__main__":
     #compareSelectors(key,test)
 
     csr = compareStyleRules(key, test)
-    print(csr)
+    #print(csr)
     #print(csr.matching["header"])
 
     percentageSelectorsMatched = compareLists(collectSelectors(key), collectSelectors(test)).match
@@ -223,6 +241,7 @@ if __name__ == "__main__":
         for line in csr.missing[selector]:
             print(f'\t{col}{line}{res}')
         print()
+
 
 
     
