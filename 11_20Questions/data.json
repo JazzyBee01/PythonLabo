@@ -69,5 +69,119 @@
             "Oceanie"
         ],
         "habitat": "jungle"
+    },
+    "zebra": {
+        "naam": "zebra",
+        "klasse": "zoogdier",
+        "dieet": "herbivoor",
+        "aantalPoten": "4",
+        "kleur": [
+            "zwart"
+        ],
+        "gegeten": "False",
+        "huisdier": "False",
+        "huid": "vacht",
+        "pattroon": [
+            "strepen"
+        ],
+        "oorsprong": [
+            "Afrika"
+        ],
+        "habitat": "anders"
+    },
+    "beer": {
+        "naam": "beer",
+        "klasse": "zoogdier",
+        "dieet": "omnivoor",
+        "aantalPoten": "4",
+        "kleur": [
+            "bruin"
+        ],
+        "gegeten": "False",
+        "huisdier": "False",
+        "huid": "vacht",
+        "pattroon": [
+            "geen patroon"
+        ],
+        "oorsprong": [
+            "Europa"
+        ],
+        "habitat": "jungle"
+    },
+    "eekhoorn": {
+        "naam": "eekhoorn",
+        "klasse": "zoogdier",
+        "dieet": "herbivoor",
+        "aantalPoten": "4",
+        "kleur": [
+            "rood"
+        ],
+        "gegeten": "False",
+        "huisdier": "False",
+        "huid": "vacht",
+        "patroon": [
+            "geen patroon"
+        ],
+        "oorsprong": [
+            "Europa"
+        ],
+        "habitat": "bos"
+    },
+    "pinguin": {
+        "naam": "pinguin",
+        "klasse": "vogel",
+        "dieet": "pescetarier",
+        "aantalPoten": "2",
+        "kleur": [
+            "zwart"
+        ],
+        "gegeten": "False",
+        "huisdier": "False",
+        "huid": "vacht",
+        "pattroon": [
+            "anders"
+        ],
+        "oorsprong": [
+            "Afrika"
+        ],
+        "habitat": "zee"
+    },
+    "rups": {
+        "naam": "rups",
+        "klasse": "insect",
+        "dieet": "herbivoor",
+        "aantalPoten": "12",
+        "kleur": [
+            "groen"
+        ],
+        "gegeten": "False",
+        "huisdier": "False",
+        "huid": "anders",
+        "pattroon": [
+            "anders"
+        ],
+        "oorsprong": [
+            "Europa"
+        ],
+        "habitat": "bos"
+    },
+    "pladijs": {
+        "naam": "pladijs",
+        "klasse": "vis",
+        "dieet": "herbivoor",
+        "aantalPoten": "0",
+        "kleur": [
+            "bruin"
+        ],
+        "gegeten": "True",
+        "huisdier": "False",
+        "huid": "schubben",
+        "pattroon": [
+            "vlekken"
+        ],
+        "oorsprong": [
+            "Europa"
+        ],
+        "habitat": "zee"
     }
 }

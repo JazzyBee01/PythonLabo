@@ -2,6 +2,7 @@ import dataclasses
 from dataclasses import dataclass, asdict
 import json
 import random
+import sys
 
 
 @dataclass()
@@ -34,6 +35,48 @@ dierEigenschappen = {
     "habitat": ("bos", "zee", "stad", "huis", "jungle", "anders")
 }
 tuplelist = ["kleur", "pattroon", "oorsprong"]
+
+kerst_weetjes = [
+    "Wist je dat rendieren de enige hertensoort zijn waarbij zowel de mannetje als de vrouwtjes een gewei dragen?",
+
+    "Wist je dat een rendier 100 tot 300kg kan wegen?",
+
+    "De eerste vermelding van de rendieren van de kerstman is te vinden in het gedicht ‘A Visit from St. Nicholas’ "
+    "uit 1823. Het gedicht is beter bekend als ‘The Night Before Christmas’ of ‘Twas the Night Before Christmas’",
+
+    "Verpulverd rendiergewei wordt in Azië verkocht als medisch supplement, voedingssupplement of afrodisicum, om de"
+    " geslachtsdrift te stimuleren. :( ",
+
+    "Tijdens de Tweede Wereldoorlog gebruikte het Russische leger rendieren als lastdieren om voedsel, post en munitie "
+    "te vervoeren. Ook werden rendieren ingezet om gewonde soldaten, piloten en uitrusting mee te vervoeren. In totaal "
+    "ging het om zo’n 6000 rendieren.",
+
+    "Veel soorten rendieren maken een klikkend geluid met hun knieën als ze lopen. Dit heeft te maken met hoe hun knieën "
+    "in elkaar zitten: een kleine pees schuift over een uitstekend stukje bot in hun poten. Vaak is het klikgeluid luider"
+    " naarmate het rendier groter is. Uit de frequentie van het geklik is verder af te leiden welke sociale positie in de "
+    "kudde het dier bekleedt."
+
+]
+
+weetjes = [
+    "Een eekhoorn eet wel 100 dennenappels per dag",
+    "Met een populatie van ongeveer 800 Tapanuli orang-oetans is het de meest bedreigde mensapensoort ter wereld. ",
+    "De smaakpapillen van katten kunnen suikers niet goed detecteren",
+
+    "De pauwspin, Maratus volans, voert een dans op als onderdeel van hun paringsritueel. Samen met de felle kleuren"
+    " van hun lichaam maakt het een waar spektakel om te zien.",
+
+    "Omdat een duif zijn ogen aan de zijkant van zijn kop heeft zitten, heeft hij moeite met het schatten van diepte."
+    " De twee blikvelden van de ogen hebben geen overlap; je kunt dit vergelijken met het kijken met één oog. Zie dan"
+    " maar eens hoe ver iets van je af is. Door het snelle kopschudden krijgt de duif beelden binnen vanaf meerdere "
+    "standpunten, die hij combineert om diepte te kunnen zien.",
+
+    "Een slak kan drie jaar slapen zonder te eten",
+
+    "Vlinders proeven met hun pootjes",
+
+    "Zeeotters houden elkaars handje vast"
+]
 class App_20_Questions():
 
     def __init__(self):
@@ -68,7 +111,10 @@ class App_20_Questions():
                 antw = True
             elif antw == "False" or antw == "false":
                 antw = False
-            if antw in criteria:
+            if antw in criteria or (criteria == ["ja", "nee", "anders"] and antw in ['j','n','a']):
+                break
+            if 4 in criteria:
+                antw = int(antw)
                 break
             elif antw == "exit":
                 exit()
@@ -81,7 +127,7 @@ class App_20_Questions():
     def vraag_eig_af(self,type_eigenschap):
         list = []
         for dier in self.mogelijkeDieren:
-            if self.data[dier][type_eigenschap] not in list:
+            if self.data[dier][type_eigenschap] not in list and self.data[dier][type_eigenschap] != 'False':
                 list.append(self.data[dier][type_eigenschap])
         #print(list)
         # als tuppel, kies random
@@ -89,20 +135,20 @@ class App_20_Questions():
         #anders
         for eig in list:
             antw = self.stel_vraag(self.bepaal_vraag_vorm(type_eigenschap, eig))
-            if antw == "ja":
+            if antw == "ja" or antw == 'j':
                 i = 0
                 while i < len(self.mogelijkeDieren):
                     dier = self.mogelijkeDieren[i]
                     if eig not in self.data[dier][type_eigenschap]:
                         self.mogelijkeDieren.remove(self.data[dier]["naam"])
-                        # Items verschuiven -> idex verminderen
+                        # Items verschuiven -> index verminderen
                         i -= 1
                     i += 1
                 #print(self.mogelijkeDieren)
                 self.antwoorden[type_eigenschap] = eig
                 self.elemineer(type_eigenschap, eig, "ja")
                 break
-            elif antw == "nee":
+            elif antw == "nee" or antw == 'n':
                 # elimineer
                 i = 0
                 while i < len(self.mogelijkeDieren):
@@ -138,15 +184,15 @@ class App_20_Questions():
 
         if len(self.mogelijkeDieren) == 1:
             antw = self.stel_vraag(f"is het een {self.mogelijkeDieren[0]}?")
-            if antw == "ja":
+            if antw == "ja" or antw == "j":
                 print(f"hoera, geraden in {self.aantalVragen}")
                 exit()
-            elif antw == "nee" and self.aantalVragen < 20:
+            elif (antw == "nee" or antw == "n") and self.aantalVragen < 20:
                 self.mogelijkeDieren.remove(self.mogelijkeDieren[0])
 
         if len(self.mogelijkeDieren) == 0:
             antw2 = self.stel_vraag("Dier niet gevonden :( \n mogen we je extra vragen stellen zodat we onze kennis kunnen bijwerken?")
-            if antw2 == "ja":
+            if antw2 in ['ja', 'j']:
                 while True:
                     naam = input(f"Wat is de naam van het dier dan?\n:")
                     if len(naam.split()) == 1:
@@ -183,7 +229,7 @@ class App_20_Questions():
             print()
 
         antw = self.stel_vraag("is bovenstaande informatie correct?")
-        while antw != "ja":
+        while antw != "ja" and antw != "j":
             incorrecte_eigenschap = self.stel_vraag("Welke informatie is niet correct?", self.dierEigCopy)
             waarde = ""
             waarde = self.stel_vraag(f"Wat moet {incorrecte_eigenschap} dan wel zijn?", dierEigenschappen[incorrecte_eigenschap] )
@@ -232,7 +278,7 @@ class App_20_Questions():
         else:
             str = "eigenschap niet herkend"
         return str
-    
+
     def randomkey(self, dict):
         keylist = []
         for key in dict.keys():
@@ -260,16 +306,16 @@ class App_20_Questions():
                          if waarde not in ("", "geen", False,"anders"):
                             antw = self.stel_vraag(self.bepaal_vraag_vorm(eig, waarde))
                             self.elemineer(eig, waarde, antw)
-                            if antw == "ja" and eig not in ["pattroon", "habitat"]:
+                            if (antw == "ja" or antw == 'j') and eig not in ["pattroon", "habitat"]:
                                 break
             print(self.dierEigCopy)
 
     def elemineer(self, eigenschap, waarde, antw):
-        if antw == "ja":
+        if antw == "ja" or antw == 'j':
             self.antwoorden[eigenschap] = waarde
             self.dierEigCopy[eigenschap] = (waarde,)
             # hou bij
-        elif antw == "nee":
+        elif antw == "nee" or antw == 'n':
             new_tuple_1 = tuple(item for item in self.dierEigCopy[eigenschap] if str(item) != str(waarde))
             self.dierEigCopy[eigenschap] = new_tuple_1
             # probeer met andere waarde
@@ -331,8 +377,70 @@ class App_20_Questions():
     def dict(self):
         return {k: v for k, v in asdict(self).items()}
 
+    def groet(self):
+
+        if (len(sys.argv) > 1):
+            if (sys.argv[1] == "-k"):
+                print(kerst_weetjes[2])
+                self.print_kader_met_tekst(random.choice(kerst_weetjes))
+        else:
+            self.print_kader_met_tekst(random.choice(weetjes))
+        print('Hallo! ')
+        print('Welkom bij 20 vragen, een spel waarbij er met vragen achterhaald wordt welk dier je in gedachten hebt.')
+
+        print('Je kan het spel op elk moment stoppen door "exit" te antwoorden.')
+        input('Heb je een dier in gedachten? druk dan op enter toets.')
+
+    def print_kader_met_tekst(self, tekst, width=100):
+
+
+        #bovenste streep
+        print("+", end="")
+        for i in range(width):
+            print("-", end="")
+        print("+")
+
+        print("| Weetje: ", end = "")
+        for i in range(width - len("| Weetje:")):
+                print(" ", end = "")
+        print("|")
+
+        print("|", end = " ")
+        i = 0
+        j = 0
+        while i < len(tekst):
+            print(tekst[i], end="")
+            i += 1
+            j += 1
+
+            if ((j > width - 20) and tekst[i] == " ") :
+                for k in range(width - j-1):
+                    print(" ", end = "")
+
+                print("|")
+                print('|', end = "")
+                j = 0
+
+            if (i == len(tekst)):
+                for k in range(width - j - 1):
+                    print(" ", end = "")
+
+                print("|")
+
+
+
+
+        # onderste streep
+        print("+", end="")
+        for i in range(width):
+            print("-", end="")
+        print("+")
+
+
 def main():
     app = App_20_Questions()
+    app.groet()
+
     #app.resetBasisData()
     app.vragen_op_basis_van_data()
     #app.dierEigCopy = {'klasse': ('zoogdier',), 'dieet': ('herbivoor',), 'aantalPoten': (4,), 'kleur': ('grijs',), 'gegeten': (False,), 'huisdier': (False,), 'huid': ('vacht',), 'pattroon': ('strepen',), 'oorsprong': ('Europa',)}
