@@ -23,6 +23,3 @@ Online vond ik een heel andere aanpak voor dezelfde opgave.
 Het werkt met nodes en de code zelf is heel erg kort. 
 
 http://openbookproject.net/py4fun/animal/animal.html
-
-Ik zal ook een keer proberen om het op deze manier uit te
-werken.
