@@ -10,8 +10,6 @@ vragen stellen.
 - [x] De gerichte vragen aanpassen zodat de antwoorden ook meegenomen
 worden naar de wilde vragen
 - [x] Een manier om data te verzamelen en op te slagen.
-het probleem blijft de onvolledigheid bij 20 vragen; Misschien de ontbrekende
-data vragen aan de gebruiker.
 - [x] Interface opschonen
 - [x] weetjes toegevoegd
 - [x] kerst weetjes
