@@ -12,7 +12,7 @@ worden naar de wilde vragen
 - [x] Een manier om data te verzamelen en op te slagen.
 - [x] Interface opschonen
 - [x] weetjes toegevoegd
-- [x] kerst weetjes
+- [x] kerst weetjes 
 
 ## opmerking
 Online vond ik een heel andere aanpak voor dezelfde opgave.
